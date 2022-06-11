@@ -16,32 +16,23 @@ namespace TBRailShooter.Core
         int positionInPath = 0;
         [SerializeField] bool moveBool = true;
         [SerializeField] GameObject player;
-        //MovementPlayer player;
+        MovementPlayer movementPlayer;
 
         void Start()
         {
-            positionInPath = 0;
+            movementPlayer = player.GetComponent<MovementPlayer>();
+            positionInPath = 1;
             waypoint = path[positionInPath];
             SetNextWaypoint();
-            //player.SetNextPosition(waypoint);
+           // Debug.Log(positionInPath + " " + movementPlayer);
             Debug.Log(waypoint.transform.position);
-            
+            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
+            waypoint.GetRemainingEnemies();
+
         }
 
         private void Update()
         {
-            if (moveBool)
-            {
-                SetNextWaypoint();
-
-                //player.SetMoveBool();
-            }
-
-            Debug.Log(path.Count);
-            if(GetComponent<MovementPlayer>() == null)
-            {
-                print("This is null!");
-            }
             
         }
 
@@ -49,7 +40,6 @@ namespace TBRailShooter.Core
         {
             positionInPath++;
             waypoint = path[positionInPath];
-           // remainingEnemies = waypoint.GetRemainingEnemies();
         }
         public Waypoint GetCurrentWaypont()
         {

@@ -20,13 +20,12 @@ namespace TBRailShooter.Enemy
             health = 1;
             player = GameObject.FindWithTag("Player");
             movementPlayer = player.GetComponent<MovementPlayer>();
-            waypoint = movementPlayer.GetCurrentWaypont();        
         }
 
         // Update is called once per frame
         void Update()
         {
-            Debug.Log(waypoint.GetRemainingEnemies() + " " + waypoint.name + " " + gameObject.name);
+           // Debug.Log(waypoint.GetRemainingEnemies() + " " + waypoint.name + " " + gameObject.name);
         }
 
         private void OnMouseDown()
