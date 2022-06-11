@@ -17,13 +17,11 @@ namespace TBRailShooter.Waypoints
         void Start()
         {
             ResetRemainingEnemies();
-            //Debug.Log(remainingEnemies);
         }
 
         // Update is called once per frame
         void Update()
         {
-           // Debug.Log(enemies.Count);
         }
         public int GetRemainingEnemies()
         {

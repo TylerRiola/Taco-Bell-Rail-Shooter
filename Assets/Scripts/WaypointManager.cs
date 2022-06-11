@@ -15,6 +15,7 @@ namespace TBRailShooter.Core
         [SerializeField] List<Waypoint> path = new List<Waypoint>();
         int positionInPath = 0;
         [SerializeField] bool moveBool = true;
+        Vector3 nextPosition;
         [SerializeField] GameObject player;
         MovementPlayer movementPlayer;
 
@@ -23,9 +24,6 @@ namespace TBRailShooter.Core
             movementPlayer = player.GetComponent<MovementPlayer>();
             positionInPath = 1;
             waypoint = path[positionInPath];
-            SetNextWaypoint();
-           // Debug.Log(positionInPath + " " + movementPlayer);
-            Debug.Log(waypoint.transform.position);
             movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
             waypoint.GetRemainingEnemies();
 

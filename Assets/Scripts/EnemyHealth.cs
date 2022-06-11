@@ -33,8 +33,6 @@ namespace TBRailShooter.Enemy
             health--;
             if (health <= 0)
             {
-                Debug.Log(waypoint.GetRemainingEnemies() + " " + gameObject.name);
-                waypoint.SetRemainingEnemies();
                 Destroy(gameObject);
             }
         }
