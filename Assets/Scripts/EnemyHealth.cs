@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TBRailShooter.Movement;
-using TBRailShooter.Waypoints;
 using UnityEngine;
 
 namespace TBRailShooter.Enemy
@@ -10,8 +9,6 @@ namespace TBRailShooter.Enemy
     {
         GameObject player;
         MovementPlayer movementPlayer;
-        Waypoint waypoint;
-        Weapon weapon;
         float health = 1;
 
         // Start is called before the first frame update

@@ -22,16 +22,24 @@ namespace TBRailShooter.Core
         void Start()
         {
             movementPlayer = player.GetComponent<MovementPlayer>();
-            positionInPath = 1;
-            waypoint = path[positionInPath];
-            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
-            waypoint.GetRemainingEnemies();
+            SetNextWaypoint();
+            SetPlayer();
 
         }
 
         private void Update()
         {
-            
+            if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
+            {
+                SetNextWaypoint();
+                SetPlayer();
+            }
+        }
+
+        private void SetPlayer()
+        {
+            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
+            movementPlayer.SetCurrentWaypoint_Player(waypoint);
         }
 
         public void SetNextWaypoint()
