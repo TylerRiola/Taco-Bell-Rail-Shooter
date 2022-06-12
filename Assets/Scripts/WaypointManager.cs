@@ -23,8 +23,7 @@ namespace TBRailShooter.Core
         {
             movementPlayer = player.GetComponent<MovementPlayer>();
             SetNextWaypoint();
-            SetPlayer();
-
+            SetPlayerAndEnemies();
         }
 
         private void Update()
@@ -32,20 +31,29 @@ namespace TBRailShooter.Core
             if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
             {
                 SetNextWaypoint();
-                SetPlayer();
+                SetPlayerAndEnemies();
             }
         }
 
-        private void SetPlayer()
+        private void SetPlayerAndEnemies()
         {
-            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
-            movementPlayer.SetCurrentWaypoint_Player(waypoint);
+
+           movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
+           movementPlayer.SetCurrentWaypoint_Player(waypoint);
+            //Debug.Log(waypoint.GetRemainingEnemies());
+            //if (enemies.Count <= 0) return;
+            //foreach (EnemyHealth enemy in enemies)
+            //{
+            //    Debug.Log(waypoint);
+            //    enemy.SetCurrentWaypoint_Enemy(waypoint);
+            //}
         }
 
         public void SetNextWaypoint()
         {
             positionInPath++;
             waypoint = path[positionInPath];
+            waypoint.ResetRemainingEnemies();
         }
         public Waypoint GetCurrentWaypont()
         {

@@ -8,6 +8,7 @@ namespace TBRailShooter.Waypoints
 {
     public class Waypoint : MonoBehaviour
     {
+        Waypoint waypoint;
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         int remainingEnemies;
         [SerializeField] bool moveBool = false;
@@ -15,19 +16,27 @@ namespace TBRailShooter.Waypoints
 
         void Start()
         {
+            waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
+            foreach (EnemyHealth enemy in enemies)
+            {
+                enemy.SetCurrentWaypoint_Enemy(waypoint);
+            }
+           // Debug.Log(gameObject.name + " " + remainingEnemies);
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            if(remainingEnemies <=0 && !moveBool)
+            {
+                SetMoveBool();
+            }
         }
         //Remaining Enemies functions
         public int GetRemainingEnemies()
         {
-            // return remainingEnemies;
-            return 0;
+            return remainingEnemies;
         }
         public void ResetRemainingEnemies()
         {

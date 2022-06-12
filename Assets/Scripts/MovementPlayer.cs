@@ -30,13 +30,12 @@ namespace TBRailShooter.Movement
         public void SetCurrentWaypoint_Player(Waypoint waypoint)
         {
             this.waypoint = waypoint;
-            Debug.Log(this.waypoint);
         }
         private void OnTriggerStay(Collider other)
         {
             if(other.gameObject.CompareTag("Waypoint"))
             {
-
+                gameObject.transform.rotation = waypoint.transform.rotation;
             }
         }
     }

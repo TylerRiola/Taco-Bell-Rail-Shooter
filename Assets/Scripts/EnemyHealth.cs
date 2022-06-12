@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TBRailShooter.Movement;
+using TBRailShooter.Waypoints;
 using UnityEngine;
 
 namespace TBRailShooter.Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
+        Waypoint waypoint;
         GameObject player;
         MovementPlayer movementPlayer;
         float health = 1;
@@ -22,7 +24,6 @@ namespace TBRailShooter.Enemy
         // Update is called once per frame
         void Update()
         {
-           // Debug.Log(waypoint.GetRemainingEnemies() + " " + waypoint.name + " " + gameObject.name);
         }
 
         private void OnMouseDown()
@@ -30,12 +31,18 @@ namespace TBRailShooter.Enemy
             health--;
             if (health <= 0)
             {
+                waypoint.SetRemainingEnemies();
+                Debug.Log(waypoint.GetRemainingEnemies());
                 Destroy(gameObject);
             }
         }
         public float GetEnemyHealth()
         {
             return health;
+        }
+        public void SetCurrentWaypoint_Enemy(Waypoint waypoint)
+        {
+            this.waypoint = waypoint;
         }
     }
 }
