@@ -21,6 +21,7 @@ namespace TBRailShooter.Movement
 
         private void Update()
         {
+          
         }
 
         public void SetNextPlayerDestination(Vector3 destination)
@@ -31,12 +32,22 @@ namespace TBRailShooter.Movement
         {
             this.waypoint = waypoint;
         }
-        private void OnTriggerStay(Collider other)
+        
+        public NavMeshAgent GetNavMeshAgent()
         {
-            if(other.gameObject.CompareTag("Waypoint"))
-            {
-                gameObject.transform.rotation = waypoint.transform.rotation;
-            }
+            return playerNavMesh;
         }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if(other.gameObject.CompareTag("Waypoint"))
+        //    {
+        //        gameObject.transform.rotation = waypoint.transform.rotation;
+        //        waypoint.SetWaypointEnemies();
+        //    }
+        //}
+        public float ComputeRangeBetweenPlayerAndWaypoint()
+        {
+            return 0;
+        } 
     }
 }

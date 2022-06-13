@@ -22,7 +22,6 @@ namespace TBRailShooter.Waypoints
             {
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
-           // Debug.Log(gameObject.name + " " + remainingEnemies);
         }
 
         // Update is called once per frame
@@ -57,6 +56,27 @@ namespace TBRailShooter.Waypoints
             moveBool = !moveBool;
         }
 
+
+        //Set move for enemies
+        public void SetWaypointEnemies()
+        {
+            foreach (EnemyHealth enemy in enemies)
+            {
+                enemy.SetCurrentWaypoint_Enemy(waypoint);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                waypoint.SetWaypointEnemies();
+                foreach (EnemyHealth enemy in enemies)
+                {
+                    enemy.GetComponent<EnemyMovement>().CanMove();
+                }
+            }
+        }
 
     }
 }

@@ -40,13 +40,6 @@ namespace TBRailShooter.Core
 
            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
            movementPlayer.SetCurrentWaypoint_Player(waypoint);
-            //Debug.Log(waypoint.GetRemainingEnemies());
-            //if (enemies.Count <= 0) return;
-            //foreach (EnemyHealth enemy in enemies)
-            //{
-            //    Debug.Log(waypoint);
-            //    enemy.SetCurrentWaypoint_Enemy(waypoint);
-            //}
         }
 
         public void SetNextWaypoint()

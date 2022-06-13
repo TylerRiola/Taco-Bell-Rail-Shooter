@@ -9,16 +9,13 @@ namespace TBRailShooter.Enemy
     public class EnemyHealth : MonoBehaviour
     {
         Waypoint waypoint;
-        GameObject player;
-        MovementPlayer movementPlayer;
         float health = 1;
 
         // Start is called before the first frame update
         void Start()
         {
             health = 1;
-            player = GameObject.FindWithTag("Player");
-            movementPlayer = player.GetComponent<MovementPlayer>();
+            
         }
 
         // Update is called once per frame
@@ -43,6 +40,11 @@ namespace TBRailShooter.Enemy
         public void SetCurrentWaypoint_Enemy(Waypoint waypoint)
         {
             this.waypoint = waypoint;
+            //GetComponent<EnemyMovement>().CanMove();
+        }
+        public Vector3 GetEnemyDestination()
+        {
+            return waypoint.transform.position;
         }
     }
 }
