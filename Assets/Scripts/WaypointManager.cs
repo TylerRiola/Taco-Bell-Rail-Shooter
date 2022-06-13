@@ -4,7 +4,6 @@ using UnityEngine;
 using TBRailShooter.Waypoints;
 using TBRailShooter.Enemy;
 using TBRailShooter.Movement;
-using UnityEngine.AI;
 
 namespace TBRailShooter.Core
 {

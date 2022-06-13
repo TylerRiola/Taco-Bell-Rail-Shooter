@@ -24,6 +24,7 @@ namespace TBRailShooter.Movement
         // Update is called once per frame
         void Update()
         {
+            if (gameObject == null) return;
             if (canMove && !GetIsInRange())
             {
                 MoveToPlayer();

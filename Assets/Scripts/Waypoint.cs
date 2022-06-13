@@ -10,6 +10,7 @@ namespace TBRailShooter.Waypoints
     {
         Waypoint waypoint;
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
+        [SerializeField] GameObject lookAtPoint;
         int remainingEnemies;
         [SerializeField] bool moveBool = false;
         // Start is called before the first frame update
@@ -18,11 +19,23 @@ namespace TBRailShooter.Waypoints
         {
             waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
+            //if (lookAtPoint == null) return;
+            //else  SetRotation_Waypoint();
+            if (enemies.Count <=0) return;
+            else
             foreach (EnemyHealth enemy in enemies)
             {
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
         }
+
+        ////private void SetRotation_Waypoint()
+        ////{
+        ////    Debug.Log("Meow");
+        ////    Vector3 relative = transform.InverseTransformPoint(lookAtPoint.transform.position);
+        ////    float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+        ////    transform.Rotate(angle, 0, 0);
+        ////}
 
         // Update is called once per frame
         void Update()
@@ -64,6 +77,10 @@ namespace TBRailShooter.Waypoints
             {
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
+        }
+        public void SetPlayerRotation()
+        {
+
         }
 
         private void OnTriggerEnter(Collider other)

@@ -31,20 +31,13 @@ namespace TBRailShooter.Movement
         public void SetCurrentWaypoint_Player(Waypoint waypoint)
         {
             this.waypoint = waypoint;
+
         }
         
         public NavMeshAgent GetNavMeshAgent()
         {
             return playerNavMesh;
         }
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if(other.gameObject.CompareTag("Waypoint"))
-        //    {
-        //        gameObject.transform.rotation = waypoint.transform.rotation;
-        //        waypoint.SetWaypointEnemies();
-        //    }
-        //}
         public float ComputeRangeBetweenPlayerAndWaypoint()
         {
             return 0;
