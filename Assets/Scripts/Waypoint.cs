@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TBRailShooter.Enemy;
 using TBRailShooter.Movement;
+using TBRailShooter.Camera;
 
 namespace TBRailShooter.Waypoints
 {
@@ -11,6 +12,7 @@ namespace TBRailShooter.Waypoints
         Waypoint waypoint;
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         [SerializeField] GameObject lookAtPoint;
+        [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         int remainingEnemies;
         [SerializeField] bool moveBool = false;
         [SerializeField] bool currentWaypoint = false;
@@ -20,25 +22,18 @@ namespace TBRailShooter.Waypoints
         {
             waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
+
             //if (lookAtPoint == null) return;
             //else  SetRotation_Waypoint();
-            if (enemies.Count <= 0) return;
-            else
-                foreach (EnemyHealth enemy in enemies)
-                {
-                    enemy.SetCurrentWaypoint_Enemy(waypoint);
-                }
+            if (enemies.Count > 0)
+            { 
+            foreach (EnemyHealth enemy in enemies)
+            {
+                enemy.SetCurrentWaypoint_Enemy(waypoint);
+            }
+            }
         }
 
-        ////private void SetRotation_Waypoint()
-        ////{
-        ////    Debug.Log("Meow");
-        ////    Vector3 relative = transform.InverseTransformPoint(lookAtPoint.transform.position);
-        ////    float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
-        ////    transform.Rotate(angle, 0, 0);
-        ////}
-
-        // Update is called once per frame
         void Update()
         {
             if (remainingEnemies <= 0 && !moveBool)
@@ -84,9 +79,13 @@ namespace TBRailShooter.Waypoints
         {
             currentWaypoint = !currentWaypoint;
         }
-        public GameObject GetLookAt()
+        public bool GetCurrentWaypoint()
         {
-            return lookAtPoint;
+            return currentWaypoint;
+        }
+        public Transform GetLookAt()
+        {
+            return lookAtPoint.transform;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -99,6 +98,7 @@ namespace TBRailShooter.Waypoints
                 {
                     enemy.GetComponent<EnemyMovement>().CanMove();
                 }
+                //Debug.Log(c_VirtualCamera.GetComponent<LookAtObject>())/*.SetLookAtCamera(lookAtPoint)*/;
             }
         }
 

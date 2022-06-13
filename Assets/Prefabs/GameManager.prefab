@@ -49,5 +49,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  moveBool: 1
   player: {fileID: 2475262215779486800, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
+  virtualCamera: {fileID: 8033140927445069216, guid: 6e29a16105fe85a46ac1179b35eaea13, type: 3}

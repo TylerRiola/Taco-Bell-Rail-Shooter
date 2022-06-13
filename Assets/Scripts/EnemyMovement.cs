@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TBRailShooter.Movement;
 using TBRailShooter.Enemy;
+using TBRailShooter.Camera;
 
 namespace TBRailShooter.Movement
 {

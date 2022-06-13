@@ -32,7 +32,6 @@ namespace TBRailShooter.Movement
         public void SetCurrentWaypoint_Player(Waypoint waypoint)
         {
             this.waypoint = waypoint;
-            lookAt = waypoint.GetLookAt();
         }
         public void SetPlayerRotation()
         {

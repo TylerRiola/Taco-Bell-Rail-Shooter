@@ -9,7 +9,7 @@ namespace TBRailShooter.Camera
     public class LookAtObject : MonoBehaviour
     {
         Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
-        [SerializeField] Transform target;
+        Transform target;
 
         // Start is called before the first frame update
         void Start()
@@ -22,7 +22,11 @@ namespace TBRailShooter.Camera
         {
 
         }
-        public void SetLookAtCamera(GameObject lookAt)
+        public void SetLookAtCamera(Transform lookAt)
+        {
+            c_VirtualCamera.m_LookAt = lookAt;
+        }
+        public void SetWaypoint_Camera(Waypoint waypoint)
         {
 
         }

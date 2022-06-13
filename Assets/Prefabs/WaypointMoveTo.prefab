@@ -113,7 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   lookAtPoint: {fileID: 3884997128079023205}
+  c_VirtualCamera: {fileID: 8033140927445069247, guid: 6e29a16105fe85a46ac1179b35eaea13, type: 3}
   moveBool: 0
+  currentWaypoint: 0
 --- !u!54 &2131989823
 Rigidbody:
   m_ObjectHideFlags: 0

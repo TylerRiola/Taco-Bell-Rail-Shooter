@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8033140927445069247}
   m_Layer: 0
   m_Name: Follow Camera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 2475262215779486803, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5

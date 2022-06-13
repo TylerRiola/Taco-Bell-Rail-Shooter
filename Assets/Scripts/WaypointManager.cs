@@ -4,6 +4,7 @@ using UnityEngine;
 using TBRailShooter.Waypoints;
 using TBRailShooter.Enemy;
 using TBRailShooter.Movement;
+using TBRailShooter.Camera;
 
 namespace TBRailShooter.Core
 {
@@ -16,17 +17,21 @@ namespace TBRailShooter.Core
         //[SerializeField] bool moveBool = true;
         Vector3 nextPosition;
         [SerializeField] GameObject player;
+        [SerializeField] Cinemachine.CinemachineVirtualCamera virtualCamera;
         MovementPlayer movementPlayer;
+        LookAtObject lookAtObject;
 
         void Start()
         {
             movementPlayer = player.GetComponent<MovementPlayer>();
             SetNextWaypoint();
             SetPlayerAndEnemies();
+            
         }
 
         private void Update()
         {
+
             if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
             {
                 SetNextWaypoint();
@@ -36,9 +41,9 @@ namespace TBRailShooter.Core
 
         private void SetPlayerAndEnemies()
         {
-
            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
            movementPlayer.SetCurrentWaypoint_Player(waypoint);
+           virtualCamera.GetComponent<LookAtObject>().SetLookAtCamera(waypoint.GetLookAt());
         }
 
         public void SetNextWaypoint()
