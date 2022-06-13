@@ -40,7 +40,6 @@ namespace TBRailShooter.Enemy
         public void SetCurrentWaypoint_Enemy(Waypoint waypoint)
         {
             this.waypoint = waypoint;
-            //GetComponent<EnemyMovement>().CanMove();
         }
         public Vector3 GetEnemyDestination()
         {
