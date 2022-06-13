@@ -13,6 +13,7 @@ namespace TBRailShooter.Waypoints
         [SerializeField] GameObject lookAtPoint;
         int remainingEnemies;
         [SerializeField] bool moveBool = false;
+        [SerializeField] bool currentWaypoint = false;
         // Start is called before the first frame update
 
         void Start()
@@ -21,12 +22,12 @@ namespace TBRailShooter.Waypoints
             ResetRemainingEnemies();
             //if (lookAtPoint == null) return;
             //else  SetRotation_Waypoint();
-            if (enemies.Count <=0) return;
+            if (enemies.Count <= 0) return;
             else
-            foreach (EnemyHealth enemy in enemies)
-            {
-                enemy.SetCurrentWaypoint_Enemy(waypoint);
-            }
+                foreach (EnemyHealth enemy in enemies)
+                {
+                    enemy.SetCurrentWaypoint_Enemy(waypoint);
+                }
         }
 
         ////private void SetRotation_Waypoint()
@@ -40,8 +41,9 @@ namespace TBRailShooter.Waypoints
         // Update is called once per frame
         void Update()
         {
-            if(remainingEnemies <=0 && !moveBool)
+            if (remainingEnemies <= 0 && !moveBool)
             {
+                setCurrentWaypoint();
                 SetMoveBool();
             }
         }
@@ -56,7 +58,7 @@ namespace TBRailShooter.Waypoints
         }
         public void SetRemainingEnemies()
         {
-           remainingEnemies--;
+            remainingEnemies--;
         }
 
         //Move Bool functions
@@ -78,16 +80,21 @@ namespace TBRailShooter.Waypoints
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
         }
-        public void SetPlayerRotation()
+        public void setCurrentWaypoint()
         {
-
+            currentWaypoint = !currentWaypoint;
+        }
+        public GameObject GetLookAt()
+        {
+            return lookAtPoint;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                waypoint.SetWaypointEnemies();
+                setCurrentWaypoint();
+                SetWaypointEnemies();
                 foreach (EnemyHealth enemy in enemies)
                 {
                     enemy.GetComponent<EnemyMovement>().CanMove();

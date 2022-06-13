@@ -13,7 +13,7 @@ namespace TBRailShooter.Core
         Waypoint waypoint;
         [SerializeField] List<Waypoint> path = new List<Waypoint>();
         int positionInPath = 0;
-        [SerializeField] bool moveBool = true;
+        //[SerializeField] bool moveBool = true;
         Vector3 nextPosition;
         [SerializeField] GameObject player;
         MovementPlayer movementPlayer;

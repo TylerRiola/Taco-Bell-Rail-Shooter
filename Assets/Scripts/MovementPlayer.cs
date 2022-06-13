@@ -11,8 +11,9 @@ namespace TBRailShooter.Movement
     public class MovementPlayer : MonoBehaviour
     {
         Waypoint waypoint;
+        GameObject lookAt;
         NavMeshAgent playerNavMesh;
-        Vector3 nextDesination;
+       // Vector3 nextDesination;
 
         void Start()
         {
@@ -31,9 +32,11 @@ namespace TBRailShooter.Movement
         public void SetCurrentWaypoint_Player(Waypoint waypoint)
         {
             this.waypoint = waypoint;
-
+            lookAt = waypoint.GetLookAt();
         }
-        
+        public void SetPlayerRotation()
+        {
+        }
         public NavMeshAgent GetNavMeshAgent()
         {
             return playerNavMesh;
@@ -41,6 +44,18 @@ namespace TBRailShooter.Movement
         public float ComputeRangeBetweenPlayerAndWaypoint()
         {
             return 0;
-        } 
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.CompareTag("Waypoint"))
+            {
+                if(lookAt != null)
+                {
+                    SetPlayerRotation();
+                }
+            }
+        }
+
     }
 }

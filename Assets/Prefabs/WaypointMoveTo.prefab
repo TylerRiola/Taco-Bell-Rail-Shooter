@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  lookAtPoint: {fileID: 0}
+  lookAtPoint: {fileID: 3884997128079023205}
   moveBool: 0
 --- !u!54 &2131989823
 Rigidbody:
@@ -130,6 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3708325379902399448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884997128079023205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad157eba82161b647bf708e186e7b525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2311035144930679612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f8333c66e63e294e9f660700707a8e6, type: 3}
+--- !u!1 &3884997128079023205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1583079545917491033, guid: 1f8333c66e63e294e9f660700707a8e6, type: 3}
+  m_PrefabInstance: {fileID: 2311035144930679612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7456836859391030079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5147178580211656707, guid: 1f8333c66e63e294e9f660700707a8e6, type: 3}
