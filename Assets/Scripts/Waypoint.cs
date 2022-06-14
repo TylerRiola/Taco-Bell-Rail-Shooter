@@ -16,6 +16,7 @@ namespace TBRailShooter.Waypoints
         int remainingEnemies;
         [SerializeField] bool moveBool = false;
         [SerializeField] bool currentWaypoint = false;
+        [SerializeField] bool cameraBool = false;
         // Start is called before the first frame update
 
         void Start()
@@ -72,6 +73,7 @@ namespace TBRailShooter.Waypoints
         {
             foreach (EnemyHealth enemy in enemies)
             {
+                if (enemy == null) return;
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
         }
@@ -87,6 +89,10 @@ namespace TBRailShooter.Waypoints
         {
             return lookAtPoint.transform;
         }
+        public bool GetCameraBool()
+        {
+            return cameraBool;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -94,6 +100,7 @@ namespace TBRailShooter.Waypoints
             {
                 setCurrentWaypoint();
                 SetWaypointEnemies();
+                cameraBool = !cameraBool;
                 foreach (EnemyHealth enemy in enemies)
                 {
                     enemy.GetComponent<EnemyMovement>().CanMove();

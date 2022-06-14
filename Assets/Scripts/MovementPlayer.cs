@@ -35,6 +35,7 @@ namespace TBRailShooter.Movement
         }
         public void SetPlayerRotation()
         {
+
         }
         public NavMeshAgent GetNavMeshAgent()
         {

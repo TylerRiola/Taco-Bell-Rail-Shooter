@@ -18,11 +18,13 @@ namespace TBRailShooter.Core
         Vector3 nextPosition;
         [SerializeField] GameObject player;
         [SerializeField] Cinemachine.CinemachineVirtualCamera virtualCamera;
+        Transform lookAt;
         MovementPlayer movementPlayer;
         LookAtObject lookAtObject;
 
         void Start()
         {
+            lookAt = null;
             movementPlayer = player.GetComponent<MovementPlayer>();
             SetNextWaypoint();
             SetPlayerAndEnemies();
@@ -31,11 +33,15 @@ namespace TBRailShooter.Core
 
         private void Update()
         {
-
             if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
             {
                 SetNextWaypoint();
                 SetPlayerAndEnemies();
+                virtualCamera.GetComponent<LookAtObject>().SetLookAtCameraOrigin();
+            }
+            if (waypoint.GetCameraBool())
+            {
+                virtualCamera.GetComponent<LookAtObject>().SetLookAtCamera(lookAt);
             }
         }
 
@@ -43,7 +49,8 @@ namespace TBRailShooter.Core
         {
            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
            movementPlayer.SetCurrentWaypoint_Player(waypoint);
-           virtualCamera.GetComponent<LookAtObject>().SetLookAtCamera(waypoint.GetLookAt());
+           lookAt = waypoint.GetLookAt();
+          // virtualCamera.GetComponent<LookAtObject>().SetLookAtCamera(waypoint.GetLookAt());
         }
 
         public void SetNextWaypoint()
