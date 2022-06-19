@@ -41,19 +41,12 @@ namespace TBRailShooter.Movement
         {
             return playerNavMesh;
         }
-        public float ComputeRangeBetweenPlayerAndWaypoint()
-        {
-            return 0;
-        }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
-            if(other.gameObject.CompareTag("Waypoint"))
+            if (other.gameObject.CompareTag("Waypoint"))
             {
-                if(lookAt != null)
-                {
-                    SetPlayerRotation();
-                }
+                transform.rotation = GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>().transform.rotation;
             }
         }
 

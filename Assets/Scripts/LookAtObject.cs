@@ -26,7 +26,7 @@ namespace TBRailShooter.Camera
         public void SetLookAtCamera(Transform lookAt)
         {
             if (lookAt != null)
-            Debug.Log(lookAt.position);
+            //Debug.Log(lookAt.position);
             c_VirtualCamera.m_LookAt = lookAt;
         }
        public void SetLookAtCameraOrigin()

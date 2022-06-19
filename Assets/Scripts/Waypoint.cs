@@ -87,6 +87,7 @@ namespace TBRailShooter.Waypoints
         }
         public Transform GetLookAt()
         {
+           // Debug.Log(lookAtPoint.transform.position);
             return lookAtPoint.transform;
         }
         public bool GetCameraBool()
