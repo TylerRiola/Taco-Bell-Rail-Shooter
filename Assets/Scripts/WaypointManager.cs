@@ -12,7 +12,8 @@ namespace TBRailShooter.Core
     public class WaypointManager : MonoBehaviour
     {
         Waypoint waypoint;
-        [SerializeField] List<Waypoint> path = new List<Waypoint>();
+        // [SerializeField] List<Waypoint> path = new List<Waypoint>();
+        [SerializeField] RailShooterPath railShooterPath;
         int positionInPath = 0;
         //[SerializeField] bool moveBool = true;
         Vector3 nextPosition;
@@ -55,8 +56,8 @@ namespace TBRailShooter.Core
 
         public void SetNextWaypoint()
         {
+            waypoint = railShooterPath.GetWaypoint(positionInPath).GetComponent<Waypoint>();
             positionInPath++;
-            waypoint = path[positionInPath];
             waypoint.ResetRemainingEnemies();
         }
         public Waypoint GetCurrentWaypont()
