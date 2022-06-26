@@ -13,19 +13,16 @@ namespace TBRailShooter.Waypoints
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         [SerializeField] GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
+        [SerializeField] float waypointTolerance = 2f;
         int remainingEnemies;
-        [SerializeField] bool moveBool = false;
-        [SerializeField] bool currentWaypoint = false;
         [SerializeField] bool cameraBool = false;
-        // Start is called before the first frame update
 
         void Start()
         {
             waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
 
-            //if (lookAtPoint == null) return;
-            //else  SetRotation_Waypoint();
+         
             if (enemies.Count > 0)
             { 
             foreach (EnemyHealth enemy in enemies)
@@ -37,11 +34,6 @@ namespace TBRailShooter.Waypoints
 
         void Update()
         {
-            if (remainingEnemies <= 0 && !moveBool)
-            {
-                setCurrentWaypoint();
-                SetMoveBool();
-            }
         }
         //Remaining Enemies functions
         public int GetRemainingEnemies()
@@ -57,16 +49,6 @@ namespace TBRailShooter.Waypoints
             remainingEnemies--;
         }
 
-        //Move Bool functions
-        public bool GetMoveBool()
-        {
-            return moveBool;
-        }
-        public void SetMoveBool()
-        {
-            moveBool = !moveBool;
-        }
-
 
         //Set move for enemies
         public void SetWaypointEnemies()
@@ -77,17 +59,8 @@ namespace TBRailShooter.Waypoints
                 enemy.SetCurrentWaypoint_Enemy(waypoint);
             }
         }
-        public void setCurrentWaypoint()
-        {
-            currentWaypoint = !currentWaypoint;
-        }
-        public bool GetCurrentWaypoint()
-        {
-            return currentWaypoint;
-        }
         public Transform GetLookAt()
         {
-           // Debug.Log(lookAtPoint.transform.position);
             return lookAtPoint.transform;
         }
         public bool GetCameraBool()
@@ -99,14 +72,12 @@ namespace TBRailShooter.Waypoints
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                setCurrentWaypoint();
                 SetWaypointEnemies();
                 cameraBool = !cameraBool;
                 foreach (EnemyHealth enemy in enemies)
                 {
                     enemy.GetComponent<EnemyMovement>().CanMove();
                 }
-                //Debug.Log(c_VirtualCamera.GetComponent<LookAtObject>())/*.SetLookAtCamera(lookAtPoint)*/;
             }
         }
 

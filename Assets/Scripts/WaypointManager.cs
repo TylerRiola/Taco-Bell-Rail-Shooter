@@ -12,10 +12,8 @@ namespace TBRailShooter.Core
     public class WaypointManager : MonoBehaviour
     {
         Waypoint waypoint;
-        // [SerializeField] List<Waypoint> path = new List<Waypoint>();
         [SerializeField] RailShooterPath railShooterPath;
         int positionInPath = 0;
-        //[SerializeField] bool moveBool = true;
         Vector3 nextPosition;
         [SerializeField] GameObject player;
         [SerializeField] Cinemachine.CinemachineVirtualCamera virtualCamera;
@@ -34,7 +32,7 @@ namespace TBRailShooter.Core
 
         private void Update()
         {
-            if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
+            if(waypoint.GetRemainingEnemies() <= 0)
             {
                 SetNextWaypoint();
                 SetPlayerAndEnemies();
@@ -51,7 +49,6 @@ namespace TBRailShooter.Core
            movementPlayer.SetNextPlayerDestination(waypoint.transform.position);
            movementPlayer.SetCurrentWaypoint_Player(waypoint);
            lookAt = waypoint.GetLookAt();
-          // virtualCamera.GetComponent<LookAtObject>().SetLookAtCamera(waypoint.GetLookAt());
         }
 
         public void SetNextWaypoint()
