@@ -13,9 +13,10 @@ namespace TBRailShooter.Waypoints
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         [SerializeField] GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
-        [SerializeField] float waypointTolerance = 2f;
+        [SerializeField] float waypointWait = 2f;
         int remainingEnemies;
-        [SerializeField] bool cameraBool = false;
+        bool cameraBool = false;
+        [SerializeField] bool moveBool = false;
 
         void Start()
         {
@@ -67,6 +68,11 @@ namespace TBRailShooter.Waypoints
         {
             return cameraBool;
         }
+        public bool GetMoveBool()
+        {
+            return moveBool;
+        }
+            
 
         private void OnTriggerEnter(Collider other)
         {
@@ -74,6 +80,7 @@ namespace TBRailShooter.Waypoints
             {
                 SetWaypointEnemies();
                 cameraBool = !cameraBool;
+                moveBool = !moveBool;
                 foreach (EnemyHealth enemy in enemies)
                 {
                     enemy.GetComponent<EnemyMovement>().CanMove();

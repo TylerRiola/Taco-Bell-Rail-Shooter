@@ -33,10 +33,6 @@ namespace TBRailShooter.Movement
         {
             this.waypoint = waypoint;
         }
-        public void SetPlayerRotation()
-        {
-
-        }
         public NavMeshAgent GetNavMeshAgent()
         {
             return playerNavMesh;
