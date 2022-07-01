@@ -113,9 +113,8 @@ MonoBehaviour:
   enemies: []
   lookAtPoint: {fileID: 3884997128079023205}
   c_VirtualCamera: {fileID: 8033140927445069247, guid: 6e29a16105fe85a46ac1179b35eaea13, type: 3}
+  waypointWait: 2
   moveBool: 0
-  currentWaypoint: 0
-  cameraBool: 0
 --- !u!54 &2131989823
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,18 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3708325379902399448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3884997128079023205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad157eba82161b647bf708e186e7b525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2311035144930679612
 PrefabInstance:
   m_ObjectHideFlags: 0
