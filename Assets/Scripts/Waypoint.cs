@@ -11,6 +11,7 @@ namespace TBRailShooter.Waypoints
     {
         Waypoint waypoint;
         [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
+        List<Transform> enemies2 = new List<Transform>();
         [SerializeField] GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
@@ -23,6 +24,7 @@ namespace TBRailShooter.Waypoints
             waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
 
+            enemies2 = GetComponentInChildren<EnemyList>().GetEnemyList();
          
             if (enemies.Count > 0)
             { 
