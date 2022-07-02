@@ -9,14 +9,16 @@ namespace TBRailShooter.Movement
     {
         // Start is called before the first frame update
 
-        private void OnDrawGizmos()
+        public void OnDrawGizmos()
         {
             const float waypointGizmoRadius = 0.3f;
             for (int i = 0; i < transform.childCount; i++)
             {
                 Gizmos.DrawSphere(transform.GetChild(i).position, waypointGizmoRadius);
                 if (i != transform.childCount - 1)
+                {
                     Gizmos.DrawLine(transform.GetChild(i).position, transform.GetChild(i + 1).position);
+                }
 
             }
         }
