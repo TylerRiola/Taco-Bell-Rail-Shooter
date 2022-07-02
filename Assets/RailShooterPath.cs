@@ -19,7 +19,6 @@ namespace TBRailShooter.Movement
                 {
                     Gizmos.DrawLine(transform.GetChild(i).position, transform.GetChild(i + 1).position);
                 }
-
             }
         }
 
