@@ -10,11 +10,9 @@ namespace TBRailShooter.Waypoints
     public class Waypoint : MonoBehaviour
     {
         Waypoint waypoint;
-       //[SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         List<Transform> enemies = new List<Transform>();
-        //[SerializeField] GameObject lookAtPoint;
         GameObject lookAtPoint;
-        [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
+        Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
         bool moveBool = false;
         int remainingEnemies;
@@ -25,6 +23,7 @@ namespace TBRailShooter.Waypoints
         {
             waypoint = GetComponent<Waypoint>();
             lookAtPoint = GetComponentInChildren<LookAtArea>().gameObject;
+            c_VirtualCamera = FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
            // ResetRemainingEnemies();
             if (GetComponentInChildren<LookAtArea>().GetEnemyList() != null)
             {
