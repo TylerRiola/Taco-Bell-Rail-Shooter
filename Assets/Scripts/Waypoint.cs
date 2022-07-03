@@ -24,7 +24,7 @@ namespace TBRailShooter.Waypoints
             waypoint = GetComponent<Waypoint>();
             ResetRemainingEnemies();
 
-            enemies2 = GetComponentInChildren<EnemyList>().GetEnemyList();
+            //enemies2 = GetComponentInChildren<EnemyList>().GetEnemyList();
          
             if (enemies.Count > 0)
             { 

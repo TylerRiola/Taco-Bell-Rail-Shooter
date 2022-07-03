@@ -10,16 +10,24 @@ public class EnemyList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i< transform.childCount; i++)
-        {
-            enemies[i] = transform.GetChild(i);
-        }
+        //if (transform.childCount > 0)
+        //{
+        //    for (int i = 0; i < transform.childCount; i++)
+        //    {
+        //        //  enemies[i] = transform.GetChild(i);
+        //        enemies.Add(transform.GetChild(i));
+        //    }
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(transform.childCount + " " + transform.name);
+        Debug.Log(transform.childCount + " " + transform.name);
+        if(transform.childCount <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public List<Transform> GetEnemyList()
