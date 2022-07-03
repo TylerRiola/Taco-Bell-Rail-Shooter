@@ -32,6 +32,7 @@ namespace TBRailShooter.Core
 
         private void Update()
         {
+            Debug.Log(transform.name + " " + waypoint.GetRemainingEnemies());
             if(waypoint.GetRemainingEnemies() <= 0 && waypoint.GetMoveBool())
             {
                 SetNextWaypoint();
