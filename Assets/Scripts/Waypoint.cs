@@ -15,9 +15,10 @@ namespace TBRailShooter.Waypoints
         [SerializeField] GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
+        bool moveBool = false;
         int remainingEnemies;
         bool cameraBool = false;
-        [SerializeField] bool moveBool = false;
+        
 
         void Start()
         {
@@ -39,9 +40,10 @@ namespace TBRailShooter.Waypoints
         {
         }
         //Remaining Enemies functions
-        public int GetRemainingEnemies()
+        public float GetRemainingEnemies()
         {
             return remainingEnemies;
+            //return GetComponentInChildren<LookAtArea>().GetEnemyCountInList();
         }
         public void ResetRemainingEnemies()
         {
@@ -74,6 +76,7 @@ namespace TBRailShooter.Waypoints
         {
             return moveBool;
         }
+   
             
 
         private void OnTriggerEnter(Collider other)

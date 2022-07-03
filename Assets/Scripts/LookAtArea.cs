@@ -15,4 +15,13 @@ public class LookAtArea : MonoBehaviour
     {
         
     }
+    public float GetEnemyCountInList()
+    {
+        return transform.childCount;
+    }
+    //public List<Transform> GetEnemyList()
+    //{
+    //   // return enemies;
+    //}
+
 }

@@ -55,7 +55,7 @@ namespace TBRailShooter.Core
         {
             waypoint = railShooterPath.GetWaypoint(positionInPath).GetComponent<Waypoint>();
             positionInPath++;
-            waypoint.ResetRemainingEnemies();
+           // waypoint.ResetRemainingEnemies();
         }
         public Waypoint GetCurrentWaypont()
         {
