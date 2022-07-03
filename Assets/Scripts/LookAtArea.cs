@@ -18,9 +18,6 @@ public class LookAtArea : MonoBehaviour
     }
     public float GetEnemyCountInList()
     {
-        ////if (enemyList.GetEnemyCountInList() == 0) return 0;
-        ////return enemyList.GetEnemyCountInList();
-       // Debug.Log(transform.childCount);
         return transform.childCount;
     }
     public List<Transform> GetEnemyList()

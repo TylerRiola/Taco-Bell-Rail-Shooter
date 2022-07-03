@@ -12,7 +12,8 @@ namespace TBRailShooter.Waypoints
         Waypoint waypoint;
        //[SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
         List<Transform> enemies = new List<Transform>();
-        [SerializeField] GameObject lookAtPoint;
+        //[SerializeField] GameObject lookAtPoint;
+        GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
         bool moveBool = false;
@@ -23,6 +24,7 @@ namespace TBRailShooter.Waypoints
         void Start()
         {
             waypoint = GetComponent<Waypoint>();
+            lookAtPoint = GetComponentInChildren<LookAtArea>().gameObject;
            // ResetRemainingEnemies();
             if (GetComponentInChildren<LookAtArea>().GetEnemyList() != null)
             {

@@ -4770,15 +4770,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2475262215779486805, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
       propertyPath: m_Speed
-      value: 7
+      value: 1.0001e+11
       objectReference: {fileID: 0}
     - target: {fileID: 2475262215779486805, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
       propertyPath: m_Acceleration
-      value: 122.38
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2475262215779486805, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
       propertyPath: m_AngularSpeed
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2475262215779486805, guid: ba867133b524a4040a9c1c0c3298fb03, type: 3}
       propertyPath: m_StoppingDistance
