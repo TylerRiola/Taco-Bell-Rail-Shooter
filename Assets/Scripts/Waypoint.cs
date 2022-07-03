@@ -10,8 +10,8 @@ namespace TBRailShooter.Waypoints
     public class Waypoint : MonoBehaviour
     {
         Waypoint waypoint;
-        [SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
-        List<Transform> enemies2 = new List<Transform>();
+       //[SerializeField] List<EnemyHealth> enemies = new List<EnemyHealth>();
+        List<Transform> enemies = new List<Transform>();
         [SerializeField] GameObject lookAtPoint;
         [SerializeField] Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
@@ -23,18 +23,20 @@ namespace TBRailShooter.Waypoints
         void Start()
         {
             waypoint = GetComponent<Waypoint>();
-            ResetRemainingEnemies();
+           // ResetRemainingEnemies();
             if (GetComponentInChildren<LookAtArea>().GetEnemyList() != null)
-            Debug.Log(GetComponentInChildren<LookAtArea>().GetEnemyList());
-
-            //enemies2 = GetComponentInChildren<EnemyList>().GetEnemyList();
-         
-            if (enemies.Count > 0)
-            { 
-            foreach (EnemyHealth enemy in enemies)
             {
-                enemy.SetCurrentWaypoint_Enemy(waypoint);
+                enemies = GetComponentInChildren<EnemyList>().GetEnemyList();
+
             }
+
+            if (enemies.Count > 0)
+            {
+                foreach (Transform enemy in enemies)
+                {
+                    if(enemy != null)
+                        enemy.GetComponent<EnemyHealth>().SetCurrentWaypoint_Enemy(waypoint);
+                }
             }
         }
 
@@ -48,10 +50,10 @@ namespace TBRailShooter.Waypoints
             if (GetComponentInChildren<LookAtArea>().GetComponentsInChildren<EnemyList>() == null) return 0;
             return GetComponentInChildren<LookAtArea>().GetEnemyCountInList();
         }
-        public void ResetRemainingEnemies()
-        {
-            remainingEnemies = enemies.Count;
-        }
+        //public void ResetRemainingEnemies()
+        //{
+        //    remainingEnemies = enemies.Count;
+        //}
         public void SetRemainingEnemies()
         {
             remainingEnemies--;
@@ -61,10 +63,10 @@ namespace TBRailShooter.Waypoints
         //Set move for enemies
         public void SetWaypointEnemies()
         {
-            foreach (EnemyHealth enemy in enemies)
+            foreach (Transform enemy in enemies)
             {
                 if (enemy == null) return;
-                enemy.SetCurrentWaypoint_Enemy(waypoint);
+                enemy.GetComponent<EnemyHealth>().SetCurrentWaypoint_Enemy(waypoint);
             }
         }
         public Transform GetLookAt()
@@ -89,9 +91,10 @@ namespace TBRailShooter.Waypoints
                 SetWaypointEnemies();
                 cameraBool = !cameraBool;
                 moveBool = !moveBool;
-                foreach (EnemyHealth enemy in enemies)
+                foreach (Transform enemy in enemies)
                 {
-                    enemy.GetComponent<EnemyMovement>().CanMove();
+                    if (enemy != null)
+                        enemy.GetComponent<EnemyMovement>().CanMove();
                 }
             }
         }
