@@ -114,7 +114,6 @@ MonoBehaviour:
   lookAtPoint: {fileID: 8118001456000052310}
   c_VirtualCamera: {fileID: 8033140927445069247, guid: 6e29a16105fe85a46ac1179b35eaea13, type: 3}
   waypointWait: 2
-  moveBool: 0
 --- !u!54 &4990735083255047436
 Rigidbody:
   m_ObjectHideFlags: 0

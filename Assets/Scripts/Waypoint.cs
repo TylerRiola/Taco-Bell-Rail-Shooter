@@ -42,8 +42,9 @@ namespace TBRailShooter.Waypoints
         //Remaining Enemies functions
         public float GetRemainingEnemies()
         {
-            return remainingEnemies;
-            //return GetComponentInChildren<LookAtArea>().GetEnemyCountInList();
+            //return remainingEnemies;
+            if (GetComponentInChildren<LookAtArea>().GetComponentsInChildren<EnemyList>() == null) return 0;
+            return GetComponentInChildren<LookAtArea>().GetEnemyCountInList();
         }
         public void ResetRemainingEnemies()
         {
