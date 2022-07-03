@@ -15,7 +15,7 @@ namespace TBRailShooter.Waypoints
         Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
         [SerializeField] float waypointWait = 2f;
         bool moveBool = false;
-        int remainingEnemies;
+      //  int remainingEnemies;
         bool cameraBool = false;
         
 
@@ -55,10 +55,10 @@ namespace TBRailShooter.Waypoints
         //{
         //    remainingEnemies = enemies.Count;
         //}
-        public void SetRemainingEnemies()
-        {
-            remainingEnemies--;
-        }
+        //public void SetRemainingEnemies()
+        //{
+        //    remainingEnemies--;
+        //}
 
 
         //Set move for enemies
